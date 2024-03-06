@@ -1,0 +1,55 @@
+### Valid data
+POST http://localhost:1234/create
+Content-Type: application/json
+
+{
+  "title": "Task title example",
+  "deadline": "2024-01-01",
+  "has_deadline": true,
+  "description": "Some description",
+  "author": "Author's name"
+}
+
+### Invalid deadline
+POST http://localhost:1234/create
+Content-Type: application/json
+
+{
+  "title": "Task title example",
+  "deadline": "asdasd",
+  "has_deadline": true,
+  "description": "Some description",
+  "author": "Author's name"
+}
+
+### Deadline should be empty
+POST http://localhost:1234/create
+Content-Type: application/json
+
+{
+  "title": "Task title example",
+  "deadline": "2024-01-01",
+  "has_deadline": false,
+  "description": "Some description",
+  "author": "Author's name"
+}
+
+### Missed fields
+POST http://localhost:1234/create
+Content-Type: application/json
+
+{
+  "title": "Task title example"
+}
+
+### Empty values
+POST http://localhost:1234/create
+Content-Type: application/json
+
+{
+  "title": "Task title example",
+  "deadline": "2024-01-01",
+  "has_deadline": true,
+  "description": "",
+  "author": "Author's name"
+}
